@@ -18,7 +18,7 @@ const Main = () => {
     <Stack>
       <Category selectedCategoryHandler={selectedCategoryHandler} selectedCategory={selectedCategory} />
       <Box p={2} sx={{height: '90vh'}}>
-        <Container maxWidth={'90%'}>
+        <Container>
           <Typography variant={'h4'} fontWeight={'bold'} mb={2}>
             {selectedCategory} <span style={{color: colors.secondary}}>videos</span>
           </Typography>

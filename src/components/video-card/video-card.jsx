@@ -4,7 +4,6 @@ import { Avatar, Card, CardContent, CardMedia, Typography, Stack } from "@mui/ma
 import { colors } from "../../constants/colors"
 
 const VideoCard = ({video}) => {
-  console.log(video)
   return (
     <Card sx={{width: '100%', boxShadow: 'none', borderRadius: 0}}>
       <CardMedia image={video?.snippet?.thumbnails?.high?.url} alt={video?.snippet?.title} sx={{width: '100%', height: '210px'}} />
