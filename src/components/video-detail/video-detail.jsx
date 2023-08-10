@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { ApiServise } from '../../service/api.servise'
 import { Avatar, Box, Button, Chip, Container, Stack, Typography } from "@mui/material"
@@ -32,7 +32,7 @@ const VideoDetail = () => {
       <Container sx={{display: 'flex', flexDirection: {xs: 'column', md: 'row'}}}>
         <Box width={{xs: '100%', md: '70%'}}>
           <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls />
-          {tags.map((item, idx) => (
+          {tags?.map((item, idx) => (
             <Chip label={item} key={idx} sx={{marginTop: '10px', cursor: 'pointer', ml: '10px'}} deleteIcon={<Tag />} onDelete={() => {}} variant='outlined' />
           ))}
           <Typography variant="h5" fontWeight='bold' p={2}>
@@ -56,6 +56,7 @@ const VideoDetail = () => {
             </Stack>
           </Stack>
           <Stack direction='row' py={1} px={2}>
+          <Link to={`/channel/${channelId}`}>
             <Stack direction='row' alignItems='center' gap='5px' marginTop='5px'>
               <Avatar src={thumbnails?.default?.url} alt={channelTitle} />
               <Typography variant='subtitle2' color='gray'>
@@ -63,6 +64,7 @@ const VideoDetail = () => {
                 <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}} />
               </Typography>
             </Stack>
+          </Link>
           </Stack>
         </Box>
         <Box width={{xs: '100%', md: '30%'}} sx={{paddingTop: {xs: '40px', md: '0px'}, paddingLeft: {xs: '0px', md: '20px', justifyContent: 'center', alignItems: 'center', overflow: 'scroll', maxHeight: '150vh'}}}>
